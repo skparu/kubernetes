@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: hello-world
+spec:
+  replicas: 5
+  selector:
+    name: dev
+  template:
+    metadata:
+      name: myapp
+      labels:
+        name: dev
+    spec:
+      containers:
+        - name: keerthi-container
+          image: nigelpoulton/pluralsight-docker-ci:latest
+          ports:
+            - containerPort: 8080
